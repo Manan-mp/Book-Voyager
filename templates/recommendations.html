@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Your Personalized Recommendations</h1>
+    <div class="books">
+        {% for book, rating in recommendations %}
+        <div class="book">
+            <h3>{{ book.title }}</h3>
+            <p>Predicted Rating: ★{{ "%.1f"|format(rating) }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="/">Back to Home</a>
+</body>
+</html>
